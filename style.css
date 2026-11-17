@@ -1,0 +1,1175 @@
+/* ============================================================
+   SOUTH INDIAN WEDDING — style.css
+   ============================================================ */
+:root {
+  --cream: #faf5eb;
+  --paper: #f5edd8;
+  --burgundy: #8b2332;
+  --maroon: #6b1d2a;
+  --gold: #b8922e;
+  --gold-light: #d4a843;
+  --gold-metallic: linear-gradient(135deg, #d4a843, #b8922e, #e8c860, #b8922e);
+  --green: #2d6b45;
+  --green-light: #4a9a65;
+  --pink: #d4728a;
+  --coral: #c41e3a;
+  --text: #3d1f1f;
+  --text-light: #6b4a4a;
+  --ease: cubic-bezier(0.22, 1, 0.36, 1);
+}
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+html {
+  font-size: 16px;
+  scroll-behavior: smooth;
+}
+body {
+  font-family: "Poppins", sans-serif;
+  font-weight: 500;
+  background: var(--cream);
+  background-image: linear-gradient(
+    180deg,
+    var(--cream) 0%,
+    #e8f2f4 35%,
+    #d4eaef 55%,
+    #e0f0f2 75%,
+    var(--cream) 100%
+  );
+  color: var(--text);
+  overflow-x: hidden;
+  line-height: 1.8;
+}
+
+/* Page loader */
+.page-loader {
+  position: fixed;
+  inset: 0;
+  background: var(--cream);
+  z-index: 10000;
+  transition:
+    opacity 0.8s ease,
+    visibility 0.8s;
+}
+.page-loader.done {
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+}
+
+/* Welcome overlay */
+.welcome-overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 10001;
+  background: var(--cream);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition:
+    opacity 0.8s ease,
+    visibility 0.8s;
+}
+.welcome-overlay.hidden {
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+}
+.welcome-content {
+  text-align: center;
+}
+.welcome-names {
+  font-family: "Great Vibes", cursive;
+  font-size: clamp(2.5rem, 8vw, 4rem);
+  color: var(--burgundy);
+}
+.welcome-sub {
+  font-size: 1rem;
+  color: var(--text-light);
+  letter-spacing: 2px;
+  margin: 0.5rem 0 1.5rem;
+  font-weight: 600;
+}
+.welcome-btn {
+  padding: 0.8rem 2rem;
+  background: var(--burgundy);
+  color: var(--cream);
+  border: none;
+  border-radius: 8px;
+  font-family: inherit;
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  letter-spacing: 1px;
+  transition:
+    background 0.3s,
+    transform 0.3s;
+}
+.welcome-lang-label {
+  font-size: 0.75rem;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: var(--text-light);
+  margin-bottom: 0.8rem;
+}
+.welcome-names .cap-a {
+  font-family: "Playfair Display", Georgia, serif;
+  font-style: italic;
+  font-weight: 400;
+  font-size: 0.92em;
+}
+.lang-btns {
+  display: flex;
+  flex-direction: column;
+  gap: 0.6rem;
+  align-items: center;
+}
+.lang-btn {
+  padding: 0.7rem 1.5rem;
+  font-size: 0.95rem;
+  min-width: 180px;
+}
+.lang-secondary {
+  background: transparent;
+  color: var(--text-light);
+  border: 1px solid var(--text-light);
+}
+.lang-secondary:hover {
+  background: var(--text-light);
+  color: var(--cream);
+}
+
+.couple-name .cap-a {
+  font-family: "Playfair Display", Georgia, serif;
+  font-style: italic;
+  font-weight: 400;
+  font-size: 0.92em; /* Adjust slightly if needed to match the height of K and L */
+}
+
+.groom-name::first-letter {
+  font-family: "Playfair Display", Georgia, serif;
+  font-style: italic;
+  font-weight: 400;
+}
+
+/* Scroll progress */
+#scroll-progress {
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 2px;
+  z-index: 9999;
+  background: linear-gradient(90deg, var(--coral), var(--gold-light));
+  width: 0;
+  transition: width 0.12s linear;
+}
+
+/* ============ TORAN + HANGINGS — SINGLE CONNECTED UNIT ============ */
+.toran-unit {
+  position: relative;
+  width: 100%;
+  z-index: 100;
+}
+.toran-img {
+  width: 100%;
+  display: block;
+  height: clamp(70px, 15vw, 130px);
+  object-fit: cover;
+  object-position: bottom;
+}
+/* Hangings overlap deeply into toran bottom */
+.hangings {
+  position: relative;
+  display: flex;
+  justify-content: space-around;
+  padding: 0 8%;
+  margin-top: clamp(-60px, -10vw, -100px); /* overlap 20% up into toran image */
+  pointer-events: none;
+  z-index: 101;
+}
+.hang-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  transform-origin: top center;
+  animation: hangSway 3.5s ease-in-out infinite alternate;
+  will-change: transform;
+}
+.hang-item:nth-child(2) {
+  animation-delay: -0.6s;
+  animation-duration: 4s;
+}
+.hang-item:nth-child(3) {
+  animation-delay: -1.2s;
+}
+.hang-item:nth-child(4) {
+  animation-delay: -1.8s;
+  animation-duration: 3.8s;
+}
+.hang-item:nth-child(5) {
+  animation-delay: -0.4s;
+  animation-duration: 4.2s;
+}
+.hang-item:nth-child(6) {
+  animation-delay: -2s;
+}
+.hang-item:nth-child(7) {
+  animation-delay: -1s;
+  animation-duration: 3.6s;
+}
+
+.bead-str {
+  width: 2px;
+  background: repeating-linear-gradient(
+    to bottom,
+    var(--gold) 0 3px,
+    transparent 3px 6px
+  );
+  opacity: 0.6;
+}
+.hang-lotus .bead-str {
+  height: clamp(15px, 3vw, 30px);
+}
+.hang-deepam .bead-str {
+  height: clamp(60px, 12vw, 120px);
+}
+.hang-lotus img {
+  width: clamp(35px, 6vw, 60px);
+  filter: drop-shadow(0 2px 6px rgba(212, 114, 138, 0.3));
+}
+.hang-deepam img {
+  width: clamp(55px, 10vw, 90px);
+  filter: drop-shadow(0 2px 8px rgba(184, 146, 46, 0.35));
+}
+
+@keyframes hangSway {
+  0% {
+    transform: rotate(-3.5deg) translateY(-1px);
+  }
+  100% {
+    transform: rotate(3.5deg) translateY(1px);
+  }
+}
+
+/* ============ SIDE FOLIAGE ============ */
+.foliage-left,
+.foliage-right {
+  position: fixed;
+  top: 0;
+  width: clamp(80px, 16vw, 160px);
+  height: 100vh;
+  z-index: 95;
+  pointer-events: none;
+  opacity: 0.65;
+  will-change: transform;
+  transition:
+    transform 0.3s ease-out,
+    opacity 0.3s ease-out;
+}
+.foliage-left {
+  left: 0;
+  transform: scale(0.2);
+  transform-origin: bottom left;
+}
+.foliage-right {
+  right: 0;
+  transform: scale(0.2);
+  transform-origin: bottom right;
+}
+.foliage-right .side-el {
+  left: auto;
+  right: -10%;
+  transform: none;
+}
+.foliage-right .s-back {
+  right: -10%;
+  left: auto;
+  transform: rotate(-10deg);
+}
+.foliage-right .s-mid {
+  right: -5%;
+  left: auto;
+  transform: rotate(5deg);
+}
+.foliage-right .s-front {
+  right: 8%;
+  left: auto;
+  transform: rotate(3deg);
+}
+.side-el {
+  position: absolute;
+  left: 0;
+  filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.06));
+}
+/* Stacked: peacock bottom, leaves above, lotus on top — no blending */
+.s-mid {
+  z-index: 2;
+  left: -50%;
+  transform: rotate(30deg);
+  width: clamp(120px, 30vw, 240px);
+}
+.s-front {
+  z-index: 3;
+  left: -30%;
+  transform: rotate(-4deg);
+  width: clamp(110px, 20vw, 220px);
+}
+
+/* ============ SECTIONS ============ */
+section {
+  position: relative;
+  padding: clamp(2.5rem, 6vw, 4rem) clamp(1.5rem, 6vw, 4rem);
+  text-align: center;
+}
+#intro {
+  padding-top: 0.2rem;
+  padding-bottom: 0.5rem;
+}
+
+/* ============ TYPOGRAPHY ============ */
+h1 {
+  font-family: "Great Vibes", cursive;
+  font-size: clamp(3.5rem, 12vw, 6rem);
+  color: var(--burgundy);
+  font-weight: 400;
+  line-height: 1.15;
+  text-shadow: 1px 2px 3px rgba(139, 35, 50, 0.08);
+}
+h1.couple-name {
+  font-size: clamp(2.5rem, 8vw, 4rem);
+}
+h1:lang(kn),
+.kn-active h1[data-kn] {
+  font-family: "Noto Sans Kannada", sans-serif;
+  font-size: clamp(2rem, 6vw, 3rem);
+}
+h2 {
+  font-family: "Great Vibes", cursive;
+  font-size: clamp(2rem, 6vw, 3.5rem);
+  color: var(--burgundy);
+  font-weight: 400;
+  margin-bottom: 0.4rem;
+  text-shadow: 1px 1px 2px rgba(139, 35, 50, 0.06);
+}
+.section-heading {
+  position: relative;
+  display: inline-block;
+}
+.fl {
+  color: var(--gold);
+  font-size: 0.55em;
+  vertical-align: middle;
+  animation: goldPulse 3s ease-in-out infinite;
+}
+.sub {
+  font-size: clamp(1rem, 2.5vw, 1.2rem);
+  color: var(--text-light);
+  letter-spacing: 1px;
+  line-height: 2;
+}
+.amp {
+  font-family: "Great Vibes", cursive;
+  font-size: clamp(1.4rem, 4vw, 2rem);
+  color: var(--gold);
+  display: block;
+  margin: 0.2rem 0;
+}
+.tamil {
+  font-family: "Noto Sans Kannada", sans-serif;
+  font-size: clamp(0.8rem, 2.2vw, 1rem);
+  color: var(--gold);
+  opacity: 0.8;
+  margin-top: 0.2rem;
+  letter-spacing: 0.5px;
+}
+.blessing {
+  font-size: clamp(0.75rem, 2vw, 0.95rem);
+  letter-spacing: 4px;
+  text-transform: uppercase;
+  color: var(--gold);
+  margin-top: 0.4rem;
+}
+.kn-active .blessing {
+  letter-spacing: 0;
+  text-transform: none;
+}
+.kn-active .sub {
+  font-size: clamp(0.75rem, 2vw, 0.95rem);
+  line-height: 1.8;
+}
+.blessing-tamil {
+  font-family: "Noto Sans Kannada", sans-serif;
+  font-size: clamp(0.6rem, 1.5vw, 0.72rem);
+  color: var(--gold);
+  opacity: 0.55;
+  margin-top: 0.2rem;
+}
+
+@keyframes goldPulse {
+  0%,
+  100% {
+    opacity: 0.5;
+    text-shadow: 0 0 4px rgba(184, 146, 46, 0.15);
+  }
+  50% {
+    opacity: 1;
+    text-shadow: 0 0 10px rgba(184, 146, 46, 0.35);
+  }
+}
+
+/* ============ GANESHA ============ */
+#ganesha {
+  padding: 0 2rem clamp(0.2rem, 0.5vw, 0.5rem);
+  margin-top: -1rem;
+}
+.ganesha-wrap {
+  position: relative;
+  display: inline-block;
+}
+.ganesha-glow {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 130px;
+  height: 130px;
+  transform: translate(-50%, -50%);
+  background: radial-gradient(
+    circle,
+    rgba(184, 146, 46, 0.18) 0%,
+    transparent 70%
+  );
+  border-radius: 50%;
+  animation: gGlow 3s ease-in-out infinite alternate;
+}
+.ganesha-img {
+  position: relative;
+  width: clamp(90px, 18vw, 140px);
+  filter: drop-shadow(0 4px 12px rgba(184, 146, 46, 0.15));
+  mix-blend-mode: multiply;
+}
+@keyframes gGlow {
+  0% {
+    opacity: 0.4;
+    transform: translate(-50%, -50%) scale(1);
+  }
+  100% {
+    opacity: 0.9;
+    transform: translate(-50%, -50%) scale(1.12);
+  }
+}
+
+/* ============ MINI DEEPAMS (intro section) ============ */
+.lamps-row {
+  display: flex;
+  justify-content: center;
+  gap: clamp(2rem, 8vw, 5rem);
+  margin-bottom: 1.5rem;
+}
+.mini-deepam {
+  width: clamp(28px, 5vw, 45px);
+  animation: hangSway 3s ease-in-out infinite alternate;
+  transform-origin: top center;
+}
+.mini-deepam:nth-child(2) {
+  animation-delay: -0.8s;
+}
+.mini-deepam:nth-child(3) {
+  animation-delay: -1.6s;
+}
+
+/* ============ MONOGRAM ============ */
+.monogram {
+  margin-bottom: 1.2rem;
+}
+.monogram-ring {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.2rem;
+  width: clamp(80px, 14vw, 110px);
+  height: clamp(80px, 14vw, 110px);
+  border: 2px solid var(--gold);
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.3);
+  position: relative;
+  box-shadow:
+    0 0 0 5px rgba(184, 146, 46, 0.08),
+    0 0 20px rgba(184, 146, 46, 0.06);
+  animation: shimRing 4s ease-in-out infinite alternate;
+}
+.monogram-ring::before {
+  content: "";
+  position: absolute;
+  inset: -9px;
+  border: 1px solid rgba(184, 146, 46, 0.15);
+  border-radius: 50%;
+}
+.monogram-initial {
+  font-family: "Great Vibes", cursive;
+  font-size: clamp(1.6rem, 4.5vw, 2.4rem);
+  background: var(--gold-metallic);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+.monogram-amp {
+  font-family: "Great Vibes", cursive;
+  font-size: clamp(0.8rem, 2vw, 1.1rem);
+  color: var(--pink);
+}
+@keyframes shimRing {
+  0% {
+    box-shadow:
+      0 0 0 5px rgba(184, 146, 46, 0.08),
+      0 0 20px rgba(184, 146, 46, 0.06);
+  }
+  100% {
+    box-shadow:
+      0 0 0 5px rgba(184, 146, 46, 0.15),
+      0 0 30px rgba(184, 146, 46, 0.12);
+  }
+}
+
+/* ============ COUPLE PHOTO ============ */
+/* Remove background and shadow from the container if any */
+.couple-photo {
+  background: transparent !important; /* Forces transparency */
+  box-shadow: none !important; /* Removes any card-like drop shadows */
+  border: none !important; /* Removes borders */
+  padding: 0;
+  margin-top: 0.8rem; /* Removes internal spacing if there is any */
+}
+
+/* Optional styling to make it sit nicely */
+.couple-img {
+  display: block;
+  margin: 0 auto;
+  height: auto;
+  width: clamp(300px, 75vw, 550px);
+  filter: drop-shadow(0 6px 20px rgba(139, 35, 50, 0.12));
+  /* (Optional) If you'd like a subtle outer 'sticker' border, you can uncomment this:
+  filter: drop-shadow(0 0 5px rgba(0,0,0,0.1)); 
+  */
+}
+
+/* ============ SCROLL HINT ============ */
+.scroll-hint {
+  margin-top: 2rem;
+  opacity: 0.5;
+  transition: opacity 0.5s;
+}
+.scroll-hint.hidden {
+  opacity: 0;
+  pointer-events: none;
+}
+.scroll-dot {
+  animation: scrollBounce 1.5s ease-in-out infinite;
+}
+@keyframes scrollBounce {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(4px);
+    opacity: 0.3;
+  }
+}
+
+/* ============ DIVIDERS ============ */
+.divider {
+  display: flex;
+  justify-content: center;
+  padding: 0.8rem 0;
+}
+.divider svg {
+  width: clamp(120px, 30vw, 200px);
+  height: auto;
+  opacity: 0.5;
+}
+
+/* ============ INVITATION / MANDAPAM ============ */
+#invitation {
+  padding-bottom: 1rem;
+  overflow: hidden;
+}
+.couple-block {
+  margin: 0.3rem 0;
+}
+
+/* Mandapam — sits below text, not overlapping */
+.mandapam-wrap {
+  margin-top: 2rem;
+  position: relative;
+  will-change: transform;
+}
+.mandapam-art {
+  display: block;
+  margin: 0 auto;
+  width: clamp(260px, 60vw, 450px);
+  mix-blend-mode: multiply;
+  filter: drop-shadow(0 8px 20px rgba(0, 0, 0, 0.1));
+}
+
+/* Water strip — clipped to bottom, subtle */
+.water-strip {
+  width: 100%;
+  height: clamp(60px, 12vw, 100px);
+  overflow: hidden;
+  margin-top: -10px;
+  position: relative;
+}
+.water-strip img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center 30%;
+  opacity: 0.5;
+}
+
+/* ============ EVENT CARDS ============ */
+.event-card {
+  padding: 1.5rem 2rem;
+  margin: 0.8rem auto;
+  background: rgba(255, 255, 255, 0.5);
+  border: 1px solid rgba(184, 146, 46, 0.18);
+  border-radius: 12px;
+  max-width: 360px;
+  backdrop-filter: blur(4px);
+  transition:
+    transform 0.3s var(--ease),
+    box-shadow 0.3s;
+}
+.event-card:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 8px 24px rgba(184, 146, 46, 0.1);
+}
+.event-card h3 {
+  font-family: "Poppins", sans-serif;
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: var(--burgundy);
+  margin-bottom: 0.3rem;
+  letter-spacing: 1px;
+}
+.event-card p {
+  font-size: 0.85rem;
+  color: var(--text-light);
+  font-weight: 400;
+}
+
+/* ============ VENUE ============ */
+.venue-name {
+  font-family: "Poppins", sans-serif;
+  font-size: clamp(1rem, 3vw, 1.4rem);
+  font-weight: 600;
+  color: var(--burgundy);
+  margin-bottom: 0.3rem;
+  letter-spacing: 1px;
+}
+.venue-addr {
+  font-size: 0.85rem;
+  color: var(--text-light);
+  line-height: 1.8;
+  font-weight: 400;
+}
+.map-btn {
+  display: inline-block;
+  margin-top: 1rem;
+  padding: 0.5rem 1.5rem;
+  background: var(--gold);
+  color: #fff;
+  border: 1px solid var(--gold);
+  border-radius: 6px;
+  font-size: 0.8rem;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  text-decoration: none;
+  transition: all 0.3s;
+}
+.map-btn:hover {
+  background: var(--burgundy);
+  border-color: var(--burgundy);
+  transform: scale(1.03);
+}
+.venue-map {
+  max-width: 400px;
+  margin: 1.2rem auto 0;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+}
+.venue-actions {
+  margin-top: 1rem;
+}
+.qr-wrap {
+  margin-top: 1.2rem;
+}
+.qr-label {
+  font-size: 0.7rem;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: var(--text-light);
+  margin-bottom: 0.4rem;
+}
+.qr-code {
+  width: 120px;
+  height: 120px;
+  border-radius: 8px;
+  border: 1px solid rgba(184, 146, 46, 0.15);
+  padding: 6px;
+  background: #fff;
+}
+
+/* ============ ELEPHANTS FOOTER ============ */
+.elephants-footer {
+  display: flex;
+  justify-content: center;
+  align-items: flex-end;
+  gap: clamp(0.8rem, 4vw, 3rem);
+  padding: 2rem 0 1rem;
+  will-change: transform;
+}
+.elephant-img {
+  width: clamp(130px, 28vw, 220px);
+  filter: drop-shadow(0 4px 10px rgba(0, 0, 0, 0.1));
+}
+.elephant-img.flip {
+  transform: scaleX(-1);
+}
+
+/* Kalash stack with foliage */
+.kalash-stack {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-end;
+}
+.kalash-img {
+  width: clamp(80px, 18vw, 140px);
+  position: relative;
+  z-index: 2;
+  filter: drop-shadow(0 2px 6px rgba(0, 0, 0, 0.08));
+}
+.spray-leaf {
+  position: absolute;
+  z-index: 1;
+  width: clamp(28px, 6vw, 48px);
+  opacity: 0.7;
+  mix-blend-mode: multiply;
+  bottom: 50%;
+}
+.spray-leaf.spray-l {
+  left: -5px;
+  transform: rotate(-35deg);
+  transform-origin: bottom right;
+}
+.spray-leaf.spray-r {
+  right: -5px;
+  transform: rotate(35deg) scaleX(-1);
+  transform-origin: bottom left;
+}
+
+/* ============ REVEAL ============ */
+.reveal {
+  opacity: 0;
+  transform: translateY(35px);
+  transition:
+    opacity 1.2s var(--ease),
+    transform 1.2s var(--ease);
+}
+.reveal.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+.reveal-d1 {
+  transition-delay: 0.15s;
+}
+.reveal-d2 {
+  transition-delay: 0.3s;
+}
+
+/* ============ PHOTO GALLERY ============ */
+.gallery-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: clamp(0.5rem, 2vw, 1rem);
+  max-width: 600px;
+  margin: 1.5rem auto 0;
+}
+.gallery-item {
+  overflow: hidden;
+  border-radius: 12px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+  transition:
+    transform 0.5s var(--ease),
+    box-shadow 0.5s;
+}
+.gallery-item:hover {
+  transform: scale(1.04);
+  box-shadow: 0 8px 30px rgba(139, 35, 50, 0.15);
+}
+.gallery-item img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  aspect-ratio: 3/4;
+  filter: saturate(0.9);
+  transition:
+    filter 0.5s,
+    transform 0.6s var(--ease);
+}
+.gallery-item:hover img {
+  filter: saturate(1.1);
+  transform: scale(1.08);
+}
+
+/* Staggered reveal for gallery items */
+.gallery-grid.visible .gallery-item {
+  animation: galleryIn 0.8s var(--ease) both;
+}
+.gallery-grid.visible .gallery-item:nth-child(2) {
+  animation-delay: 0.15s;
+}
+.gallery-item:nth-child(2) img {
+  object-position: center;
+  transform: scale(1.3);
+}
+.gallery-grid.visible .gallery-item:nth-child(3) {
+  animation-delay: 0.3s;
+}
+@keyframes galleryIn {
+  from {
+    opacity: 0;
+    transform: translateY(30px) scale(0.9);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+/* ============ COUNTDOWN ============ */
+#countdown {
+  padding: 2rem 1.5rem;
+}
+.cd-boxes {
+  display: flex;
+  justify-content: center;
+  gap: 0.8rem;
+  flex-wrap: wrap;
+  margin-top: 1.5rem;
+}
+.cd-box {
+  min-width: 60px;
+  padding: 0.8rem 0.6rem;
+  text-align: center;
+  background: rgba(255, 255, 255, 0.5);
+  border: 1px solid rgba(184, 146, 46, 0.18);
+  border-radius: 10px;
+}
+.cd-box .n {
+  font-family: "Poppins", sans-serif;
+  font-size: clamp(1.6rem, 4vw, 2.2rem);
+  font-weight: 700;
+  color: var(--burgundy);
+}
+.cd-box .l {
+  font-size: 0.6rem;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: var(--text-light);
+  font-weight: 700;
+}
+
+/* ============ RSVP ============ */
+.rsvp-form {
+  max-width: 360px;
+  width: 100%;
+  margin: 1.5rem auto 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0.6rem;
+}
+.rsvp-form input,
+.rsvp-form select,
+.rsvp-form textarea {
+  padding: 0.7rem 0.9rem;
+  background: rgba(255, 255, 255, 0.6);
+  border: 1px solid rgba(184, 146, 46, 0.22);
+  border-radius: 8px;
+  font-family: inherit;
+  font-size: 0.85rem;
+  color: var(--text);
+}
+.rsvp-form input::placeholder,
+.rsvp-form textarea::placeholder {
+  color: var(--text-light);
+}
+.rsvp-form select {
+  color: var(--text-light);
+}
+.rsvp-form input:focus,
+.rsvp-form select:focus,
+.rsvp-form textarea:focus {
+  outline: none;
+  border-color: var(--gold);
+}
+.rsvp-form button {
+  padding: 0.7rem;
+  margin-top: 0.2rem;
+  background: var(--burgundy);
+  color: var(--cream);
+  border: none;
+  border-radius: 8px;
+  font-family: inherit;
+  font-size: 0.85rem;
+  cursor: pointer;
+  letter-spacing: 1px;
+  transition: all 0.3s;
+}
+.rsvp-form button:hover {
+  background: #a83a4a;
+  transform: scale(1.02);
+}
+#rsvp-msg {
+  margin-top: 0.8rem;
+  color: var(--green);
+  font-size: 0.85rem;
+}
+
+/* ============ POND STRIP ============ */
+.pond-strip {
+  width: 100%;
+  height: clamp(50px, 8vw, 80px);
+  overflow: hidden;
+  mask-image: linear-gradient(to bottom, transparent, black 50%);
+  -webkit-mask-image: linear-gradient(to bottom, transparent, black 50%);
+}
+.pond-strip img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  opacity: 0.65;
+}
+
+/* ============ FOOTER ============ */
+footer {
+  text-align: center;
+  padding: 1.5rem;
+  font-size: 0.7rem;
+  color: var(--text-light);
+}
+.footer-lotus {
+  width: clamp(40px, 8vw, 60px);
+  opacity: 0.45;
+  mix-blend-mode: multiply;
+  margin-bottom: 0.5rem;
+  display: block;
+  margin-inline: auto;
+}
+
+/* ============ FLYING BIRDS ============ */
+.bird {
+  position: fixed;
+  z-index: 10002;
+  pointer-events: none;
+  opacity: 0;
+  will-change: transform, opacity;
+}
+.bird.fly {
+  animation: birdFly 2.5s ease-out forwards;
+}
+@keyframes birdFly {
+  0% {
+    opacity: 0;
+    transform: translate(0, 0) scale(0.4);
+  }
+  20% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+    transform: translate(var(--bx), var(--by)) scale(0.3);
+  }
+}
+
+/* ============ SOUND TOGGLE ============ */
+#sound-toggle {
+  position: fixed;
+  bottom: 1rem;
+  right: 1rem;
+  z-index: 7000;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.7);
+  border: 1px solid rgba(184, 146, 46, 0.25);
+  color: var(--gold);
+  font-size: 0.85rem;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  backdrop-filter: blur(4px);
+  transition: background 0.3s;
+}
+#sound-toggle:hover {
+  background: rgba(184, 146, 46, 0.12);
+}
+
+/* ============ SIDE LOTUS BUNCHES ============ */
+.lotus-side {
+  position: fixed;
+  z-index: 88;
+  pointer-events: none;
+  width: clamp(80px, 15vw, 160px);
+  opacity: 0.45;
+  will-change: transform;
+}
+.lotus-side-left {
+  left: 0;
+  top: 40%;
+  transform: rotate(15deg);
+  transform-origin: center left;
+}
+.lotus-side-right {
+  right: 0;
+  top: 40%;
+  transform: scaleX(-1) rotate(15deg);
+  transform-origin: center right;
+}
+.lotus-side img {
+  width: 100%;
+  mix-blend-mode: multiply;
+  filter: drop-shadow(0 3px 8px rgba(212, 114, 138, 0.2));
+}
+
+/* ============ SCROLL-TRIGGERED IMAGE ANIMATIONS ============ */
+.scroll-anim {
+  opacity: 0;
+  transform: scale(0.85) translateY(30px);
+  transition:
+    opacity 1s var(--ease),
+    transform 1s var(--ease);
+}
+.scroll-anim.in-view {
+  opacity: 1;
+  transform: scale(1) translateY(0);
+}
+
+/* Elephants walk-in then gentle float */
+.elephant-img {
+  transition:
+    opacity 1.2s var(--ease),
+    transform 1.2s var(--ease);
+}
+.elephant-img.scroll-anim {
+  opacity: 0;
+  transform: translateX(-50px);
+}
+.elephant-img.flip.scroll-anim {
+  opacity: 0;
+  transform: scaleX(-1) translateX(-50px);
+}
+.elephant-img.scroll-anim.in-view {
+  opacity: 1;
+  transform: translateX(0);
+  animation: eFloat 4s ease-in-out 1.2s infinite;
+}
+.elephant-img.flip.scroll-anim.in-view {
+  opacity: 1;
+  transform: scaleX(-1);
+  animation: eFloatFlip 4s ease-in-out 1.8s infinite;
+}
+
+@keyframes eFloat {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-5px);
+  }
+}
+@keyframes eFloatFlip {
+  0%,
+  100% {
+    transform: scaleX(-1) translateY(0);
+  }
+  50% {
+    transform: scaleX(-1) translateY(-5px);
+  }
+}
+
+/* Floating petals */
+.petal {
+  position: fixed;
+  pointer-events: none;
+  z-index: 80;
+  opacity: 0;
+  will-change: transform, opacity;
+  mix-blend-mode: multiply;
+}
+
+/* ============ RESPONSIVE ============ */
+@media (max-width: 600px) {
+  .foliage-left,
+  .foliage-right {
+    width: 60px;
+    opacity: 0.7;
+  }
+  .s-back {
+    width: 90px;
+  }
+  .s-mid {
+    width: 80px;
+  }
+  .s-front {
+    width: 70px;
+  }
+  section {
+    padding: 2rem 1.2rem;
+  }
+  .hangings {
+    padding: 0 2%;
+  }
+  .hang-item:nth-child(1),
+  .hang-item:nth-child(6) {
+    display: none;
+  } /* keep 4 items on mobile */
+  .hang-lotus img {
+    width: 28px;
+  }
+  .hang-deepam img {
+    width: 40px;
+  }
+  .hang-deepam .bead-str {
+    height: 50px;
+  }
+  .mandapam-art {
+    width: 85vw;
+  }
+  .elephant-img {
+    width: clamp(100px, 32vw, 150px);
+  }
+  #sound-toggle {
+    width: 36px;
+    height: 36px;
+  }
+  .gallery-grid {
+    grid-template-columns: repeat(3, 1fr);
+    gap: 0.4rem;
+  }
+}
+@media (min-width: 1024px) {
+  body {
+    max-width: 1400px;
+    margin: 0 auto;
+  }
+}

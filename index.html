@@ -1,0 +1,424 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Lekha & Anjan Wedding</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Poppins:wght@400;500;600;700&family=Cormorant+Garamond:ital,wght@0,400;0,600;1,400&family=Noto+Sans+Kannada:wght@400;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <div class="page-loader" id="page-loader"></div>
+
+    <!-- Welcome overlay — tap to enter & start music -->
+    <div class="welcome-overlay" id="welcome-overlay">
+      <div class="welcome-content">
+        <p class="welcome-names">Lekha & <span class="cap-a">A</span>njan</p>
+        <p class="welcome-sub">Wedding Invitation</p>
+        <p class="welcome-lang-label">Choose Language</p>
+        <div class="lang-btns">
+          <button class="welcome-btn lang-btn" data-lang="kn">ಕನ್ನಡ</button>
+          <button class="welcome-btn lang-btn lang-secondary" data-lang="en">
+            English
+          </button>
+        </div>
+      </div>
+    </div>
+    <div id="scroll-progress" aria-hidden="true"></div>
+
+    <!-- ===== TORAN + HANGINGS (single connected unit) ===== -->
+    <div class="toran-unit" aria-hidden="true">
+      <img src="images/mantapa/torana.png" alt="" class="toran-img" />
+      <div class="hangings">
+        <div class="hang-item hang-lotus">
+          <div class="bead-str"></div>
+          <img src="images/lotus/lotus_single.png" alt="" />
+        </div>
+        <div class="hang-item hang-deepam">
+          <div class="bead-str"></div>
+          <img src="images/mantapa/hanging_deepam.png" alt="" />
+        </div>
+        <div class="hang-item hang-lotus">
+          <div class="bead-str"></div>
+          <img src="images/lotus/lotus_single.png" alt="" />
+        </div>
+        <div class="hang-item hang-lotus">
+          <div class="bead-str"></div>
+          <img src="images/lotus/lotus_single.png" alt="" />
+        </div>
+        <div class="hang-item hang-deepam">
+          <div class="bead-str"></div>
+          <img src="images/mantapa/hanging_deepam.png" alt="" />
+        </div>
+        <div class="hang-item hang-lotus">
+          <div class="bead-str"></div>
+          <img src="images/lotus/lotus_single.png" alt="" />
+        </div>
+      </div>
+    </div>
+
+    <!-- Side banana leaves -->
+    <div class="foliage-left" aria-hidden="true">
+      <img
+        src="images/leaf/banan_leaf_bunches.png"
+        alt=""
+        class="side-el s-mid"
+        style="bottom: 0"
+      />
+      <img
+        src="images/lotus/lotus_bunches.png"
+        alt=""
+        class="side-el s-front"
+        style="bottom: 0"
+      />
+    </div>
+    <div class="foliage-right" aria-hidden="true">
+      <img
+        src="images/leaf/banan_leaf_bunches.png"
+        alt=""
+        class="side-el s-mid"
+        style="bottom: 0"
+      />
+      <img
+        src="images/lotus/lotus_bunches.png"
+        alt=""
+        class="side-el s-front"
+        style="bottom: 0"
+      />
+    </div>
+
+    <!-- ===== GANESHA BLESSING ===== -->
+    <section id="ganesha">
+      <div class="ganesha-wrap reveal">
+        <div class="ganesha-glow"></div>
+        <img
+          class="ganesha-img scroll-anim"
+          src="images/mantapa/lord_ganesha.png"
+          alt="Lord Ganesha"
+        />
+      </div>
+      <p
+        class="blessing reveal"
+        data-en="॥ Shree Ganeshaya Namaha ॥"
+        data-kn="॥ ಶ್ರೀ ಮರಡಿ ರಂಗನಾಥಸ್ವಾಮಿ ಪ್ರಸನ್ನ ॥<br>॥ ಶ್ರೀ ಅಮ್ಮಾಜಿಕಾವಲೇಶ್ವರಿ ಕೃಪೆ ॥"
+      >
+        ॥ Shree Ganeshaya Namaha ॥
+      </p>
+    </section>
+
+    <!-- ===== COUPLE NAMES + PHOTO ===== -->
+    <section id="intro">
+      <h1 class="reveal couple-name">Lekha K R</h1>
+      <span class="amp reveal">&</span>
+      <h1 class="reveal couple-name">
+        <span class="cap-a">A</span>njan Kumar H L
+      </h1>
+      <p
+        class="sub reveal"
+        style="margin-top: 1rem"
+        data-en="Together with our families,<br>we invite you to share in the joy of our union"
+        data-kn="ಶ್ರೀಮತಿ. ಚಿಕ್ಕತಾಯಮ್ಮ & ಲೇಟ್. ಶ್ರೀ ನಾಗೋಜಪ್ಪ<br>ಇವರ ಮಗನಾದ<br>ಶ್ರೀ ರಂಗಶಾಮಯ್ಯ ಕೆ ಎನ್ ಮತ್ತು ಶ್ರೀಮತಿ ಉಷಾರಾಣಿ ಹೆಚ್ ಆರ್<br>ಇವರು ಮಾಡುವ ವಿಜ್ಞಾಪನೆಗಳು<br><br>"
+      >
+        Together with our families,<br />we invite you to share in the joy of
+        our union
+      </p>
+
+      <div class="couple-photo reveal">
+        <img
+          src="images\couple\ghibilii.jpg"
+          alt="Lekha & Anjan"
+          class="couple-img scroll-anim"
+        />
+      </div>
+    </section>
+
+    <!-- Divider -->
+    <div class="divider" aria-hidden="true">
+      <svg viewBox="0 0 200 30" xmlns="http://www.w3.org/2000/svg">
+        <g stroke="#b8922e" stroke-width="1" fill="none">
+          <path d="M20 15Q40 5 60 15Q80 25 100 15Q120 5 140 15Q160 25 180 15" />
+          <circle cx="10" cy="15" r="3" fill="#b8922e" />
+          <circle cx="190" cy="15" r="3" fill="#b8922e" />
+        </g>
+      </svg>
+    </div>
+    <section id="invitation">
+      <p
+        class="sub reveal"
+        data-en="We solicit your gracious presence with<br>family & friends on the auspicious occasion of the"
+        data-kn=""
+      >
+        We solicit your gracious presence with<br />family & friends on the
+        auspicious occasion of the
+      </p>
+      <h2 class="section-heading reveal">
+        <span class="fl">✦</span>
+        <span data-en="Marriage Ceremony" data-kn="ಮದುವೆಯ ಮಮತೆಯ ಕರೆಯೋಲೆ"
+          >Marriage Ceremony</span
+        >
+        <span class="fl">✦</span>
+      </h2>
+
+      <div class="couple-block reveal">
+        <h1 data-en="Lekha" data-kn="ಲೇಖಾ ಕೆ ಆರ್">Lekha</h1>
+        <p
+          class="sub"
+          data-en="D/o Sri. Rangashamaiah K N & Smt. Usharani H R"
+          data-kn="( ಶ್ರೀಮತಿ ಉಷಾರಾಣಿ ಹೆಚ್ ಆರ್ ಮತ್ತು ಶ್ರೀ ರಂಗಶಾಮಯ್ಯ ಕೆ ಎನ್ ರವರ ಸುಪುತ್ರಿ)"
+        >
+          D/o Sri. Rangashamaiah K N & Smt. Usharani H R
+        </p>
+      </div>
+      <span class="amp reveal reveal-d1" data-en="with" data-kn="ಮತ್ತು"
+        >with</span
+      >
+      <div class="couple-block reveal reveal-d2">
+        <h1 class="groom-name" data-en="Anjan" data-kn="ಅಂಜನ್ ಕುಮಾರ್ ಹೆಚ್ ಎಲ್">
+          Anjan
+        </h1>
+        <p
+          class="sub"
+          data-en="S/o Sri. Lakshmish H R & Smt. Manjuladevi G R"
+          data-kn="( ಶ್ರೀ ಲಕ್ಷ್ಮೀಶ್ ಹೆಚ್ ಆರ್ ಮತ್ತು ಶ್ರೀಮತಿ ಮಂಜುಳಾದೇವಿ ಹೆಚ್ ಆರ್ ರವರ ಜೇಷ್ಠ ಪುತ್ರ)"
+        >
+          S/o Sri. Lakshmish H R & Smt. Manjuladevi G R
+        </p>
+      </div>
+
+      <!-- Mandapam illustration — positioned below text, not overlapping -->
+      <div class="mandapam-wrap reveal">
+        <img
+          class="mandapam-art scroll-anim"
+          src="images/mantapa/mantapa_2.png"
+          loading="lazy"
+          alt="Wedding Mandapam"
+        />
+      </div>
+    </section>
+
+    <!-- Divider -->
+    <div class="divider" aria-hidden="true">
+      <svg viewBox="0 0 200 30" xmlns="http://www.w3.org/2000/svg">
+        <g stroke="#b8922e" stroke-width="1" fill="none">
+          <path d="M20 15Q40 5 60 15Q80 25 100 15Q120 5 140 15Q160 25 180 15" />
+          <circle cx="10" cy="15" r="3" fill="#b8922e" />
+          <circle cx="190" cy="15" r="3" fill="#b8922e" />
+        </g>
+      </svg>
+    </div>
+
+    <!-- ===== EVENTS + VENUE ===== -->
+    <section id="events">
+      <h2 class="section-heading reveal">
+        <span class="fl">✦</span>
+        <span data-en="Venue & Timings" data-kn="ಸ್ಥಳ ಮತ್ತು ಸಮಯ"
+          >Venue & Timings</span
+        >
+        <span class="fl">✦</span>
+      </h2>
+
+      <div class="event-card reveal">
+        <h3 data-en="Reception" data-kn="ಪ್ರಥಮಶಾಸ್ತ್ರ & ಆರತಕ್ಷತೆ">Reception</h3>
+        <p data-en="02 Dec 2026, Wednesday" data-kn="02-12-2026 ನೇ ಬುಧವಾರ">
+          02 Dec 2026, Wednesday
+        </p>
+        <p data-en="6:30 PM onwards" data-kn="ಸಂಜೆ 6-30 ಕ್ಕೆ">
+          6:30 PM onwards
+        </p>
+      </div>
+      <div class="event-card reveal reveal-d1">
+        <h3 data-en="Muhurtham" data-kn="ಮುಹೂರ್ತ">Muhurtham</h3>
+        <p data-en="03 Dec 2026, Thursday" data-kn="03-12-2026 ನೇ ಗುರುವಾರ">
+          03 Dec 2026, Thursday
+        </p>
+        <p data-en="8:50 AM – 9:40 AM" data-kn="ಬೆಳಿಗ್ಗೆ 8-50 ರಿಂದ 9-40 ಗಂಟೆಗೆ">
+          8:50 AM – 9:40 AM
+        </p>
+      </div>
+
+      <div class="reveal">
+        <p
+          class="venue-name"
+          data-en="Kunchitiga Samudaya Bhavana"
+          data-kn="ಕುಂಚಿಟಿಗ ಸಮುದಾಯ ಭವನ"
+        >
+          Kunchitiga Samudaya Bhavana
+        </p>
+        <p
+          class="venue-addr"
+          data-en="Near Zilla Panchayath Office, Kothithopu Road, Tumkur."
+          data-kn="ಜಿಲ್ಲಾ ಪಂಚಾಯತ್ ಕಚೇರಿ ಹತ್ತಿರ, ಕೋತಿತೋಪು ರಸ್ತೆ, ತುಮಕೂರು."
+        >
+          Near Zilla Panchayath Office, Kothithopu Road, Tumkur.
+        </p>
+        <div class="venue-map">
+          <iframe
+            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3887.291708823548!2d77.1129494!3d13.3406926!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3bb02d7f979b019b%3A0x1318dc8206e9912c!2sKunchitiga%20Samudaya%20Bhavana!5e0!3m2!1sen!2sin!4v1234567890"
+            width="100%"
+            height="200"
+            style="border: 0; border-radius: 12px"
+            allowfullscreen=""
+            loading="lazy"
+            referrerpolicy="no-referrer-when-downgrade"
+          ></iframe>
+        </div>
+        <div class="venue-actions">
+          <a
+            class="map-btn"
+            href="https://share.google/BMNZ1RtQc9G89oD8q"
+            target="_blank"
+            rel="noopener"
+            data-en="📍 Open in Maps"
+            data-kn="📍 ನಕ್ಷೆ ತೆರೆಯಿರಿ"
+            >📍 Open in Maps</a
+          >
+        </div>
+        <div class="qr-wrap">
+          <p
+            class="qr-label"
+            data-en="Scan for directions"
+            data-kn="ದಿಕ್ಕುಗಳಿಗಾಗಿ ಸ್ಕ್ಯಾನ್ ಮಾಡಿ"
+          >
+            Scan for directions
+          </p>
+          <img
+            class="qr-code"
+            src="images/qr-venue.jpeg"
+            alt="QR Code for venue directions"
+          />
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== PHOTO GALLERY ===== -->
+    <section id="gallery">
+      <h2 class="section-heading reveal">
+        <span class="fl">✦</span>
+        <span data-en="Photo Gallery" data-kn="ಫೋಟೋ ಗ್ಯಾಲರಿ"
+          >Photo Gallery</span
+        >
+        <span class="fl">✦</span>
+      </h2>
+      <div class="gallery-grid reveal">
+        <div class="gallery-item">
+          <img
+            src="images/couple/Lek1.jpeg"
+            alt="Lekha & Anjan"
+            loading="lazy"
+          />
+        </div>
+        <div class="gallery-item">
+          <img
+            src="images/couple/Lek2.jpeg"
+            alt="Lekha & Anjan"
+            loading="lazy"
+          />
+        </div>
+        <div class="gallery-item">
+          <img
+            src="images/couple/Lek3.jpeg"
+            alt="Lekha & Anjan"
+            loading="lazy"
+          />
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== INVITE + ELEPHANTS ===== -->
+    <section id="invite">
+      <p
+        class="sub reveal"
+        style="line-height: 2.2"
+        data-en="With hearts full of love,<br>we invite you to celebrate<br>this beautiful beginning with us."
+        data-kn="ತಾವುಗಳು ಸಕುಟುಂಬ ಸಮೇತರಾಗಿ ಆಗಮಿಸಿ<br>ವಧು-ವರರನ್ನು ಆಶೀರ್ವದಿಸಬೇಕಾಗಿ ವಿನಂತಿ"
+      >
+        With hearts full of love,<br />we invite you to celebrate<br />this
+        beautiful beginning with us.
+      </p>
+      <p
+        class="sub reveal reveal-d1"
+        style="margin-top: 1rem"
+        data-en="Your presence will make our day<br>even more memorable."
+        data-kn="<strong style='color:var(--burgundy);font-size:1.1em'>ತಮ್ಮ ಆಗಮನಾಕಾಂಕ್ಷಿಗಳು:</strong><br>ಶ್ರೀಮತಿ ಉಷಾರಾಣಿ ಹೆಚ್ ಆರ್ ಮತ್ತು ಶ್ರೀ ಪಿ.ಎಸ್. ಬಸವರಾಜು<br>ಕು. ಲೇಖಾ ಕೆ ಆರ್<br>ಹಾಗೂ ಬಂಧು-ಮಿತ್ರರು"
+      >
+        Your presence will make our day<br />even more memorable.
+      </p>
+
+      <!-- Elephants + Kalash -->
+      <div class="elephants-footer reveal">
+        <img
+          class="elephant-img scroll-anim"
+          src="images/mantapa/elephant.png"
+          loading="lazy"
+          alt=""
+        />
+        <div class="kalash-stack">
+          <img
+            src="images/mantapa/pot.png"
+            loading="lazy"
+            alt="Kalash"
+            class="kalash-img scroll-anim"
+          />
+        </div>
+        <img
+          class="elephant-img flip scroll-anim"
+          src="images/mantapa/elephant.png"
+          loading="lazy"
+          alt=""
+        />
+      </div>
+    </section>
+
+    <!-- ===== COUNTDOWN ===== -->
+    <section id="countdown">
+      <h2 class="section-heading reveal">
+        <span class="fl">✦</span>
+        <span data-en="Counting Down" data-kn="ಮುಹೂರ್ತಕ್ಕೆ ಎಣಿಕೆ"
+          >Counting Down</span
+        >
+        <span class="fl">✦</span>
+      </h2>
+      <div class="cd-boxes reveal">
+        <div class="cd-box">
+          <div class="n" id="cd-d">--</div>
+          <div class="l">Days</div>
+        </div>
+        <div class="cd-box">
+          <div class="n" id="cd-h">--</div>
+          <div class="l">Hours</div>
+        </div>
+        <div class="cd-box">
+          <div class="n" id="cd-m">--</div>
+          <div class="l">Min</div>
+        </div>
+        <div class="cd-box">
+          <div class="n" id="cd-s">--</div>
+          <div class="l">Sec</div>
+        </div>
+      </div>
+    </section>
+
+    <div class="pond-strip" aria-hidden="true">
+      <img src="images/mantapa/pond.jpg" loading="lazy" alt="" />
+    </div>
+
+    <audio
+      id="bg-music-kn"
+      src="audio/radhe_shyama.mp3"
+      loop
+      preload="auto"
+    ></audio>
+    <audio
+      id="bg-music-en"
+      src="audio/ordinary.mp3"
+      loop
+      preload="auto"
+    ></audio>
+    <button id="sound-toggle" aria-label="Toggle music">🔇</button>
+    <script src="script.js"></script>
+  </body>
+</html>
